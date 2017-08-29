@@ -18,8 +18,7 @@ jobs:
       TERM: dumb
     
     steps:
-      - checkout
-      - run:  ls -la ~/repo/CIRCLE_TEST_REPORTS/
+      - checkout      
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -40,3 +39,4 @@ jobs:
      post:
       - run:  mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
       - run:  find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
+      - run:  ls -la ~/repo/CIRCLE_TEST_REPORTS/junit/
