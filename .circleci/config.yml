@@ -36,8 +36,6 @@ jobs:
       # run tests!
     
     test:
-    - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \
-      
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
@@ -45,6 +43,7 @@ jobs:
       - store_test_results:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit/
     
-      - run:  gradle tasks --all
+      - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
+      
       #gradle test
    
