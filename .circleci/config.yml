@@ -32,18 +32,16 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "build.gradle" }}
-        
-      # run tests!
-    
-    test:
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
           
       - store_test_results:
-          path: ~/repo/CIRCLE_TEST_REPORTS/junit/
+          path: ~/repo/CIRCLE_TEST_REPORTS/junit   
+      # run tests!
     
-      - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
+    test:
+       - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
       
       #gradle test
    
