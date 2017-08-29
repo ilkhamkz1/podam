@@ -35,8 +35,6 @@ jobs:
         
       # run tests!
       #- run: gradle test
-      - store_test_results:
-        path: ~/repo/CIRCLE_TEST_REPORTS/junit/
     test:
     #post:
       - run:  mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
