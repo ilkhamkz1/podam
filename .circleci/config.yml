@@ -19,7 +19,7 @@ jobs:
     
     steps:
       - checkout
-      - run:  ls -la ~/CIRCLE_TEST_REPORTS/
+      - run:  ls -la ~/repo/CIRCLE_TEST_REPORTS/
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -38,5 +38,5 @@ jobs:
       - run: gradle test
     test:
      post:
-      - run:  mkdir -p ~/CIRCLE_TEST_REPORTS/junit/
-      - run:  find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+      - run:  mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
+      - run:  find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
