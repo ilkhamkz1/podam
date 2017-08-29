@@ -19,11 +19,10 @@ jobs:
     
     steps:
       - checkout
-
+      - run:  ls -la /home/circleci/repo/build.gradle
       # Download and cache dependencies
       - restore_cache:
           keys:
-          ls -la /home/circleci/repo/build.gradle
           - v1-dependencies-{{ checksum "build.gradle" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
