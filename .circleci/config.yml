@@ -35,7 +35,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
         
       # run tests!
-      - run: gradle test
+      #- run: gradle test
     test:
      post:
       - run:  mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
