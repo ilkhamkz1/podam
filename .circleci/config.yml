@@ -19,7 +19,7 @@ jobs:
     
     steps:
       - checkout
-      - run:  ls -la /home/circleci/repo/
+      - run:  ls -la $CIRCLE_TEST_REPORTS/junit/
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -35,7 +35,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
         
       # run tests!
-      #- run: gradle test
+      - run: gradle test
       #test:
     post:
       - run:  mkdir -p $CIRCLE_TEST_REPORTS/junit/
