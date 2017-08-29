@@ -19,7 +19,7 @@ jobs:
     
     steps:
       - checkout
-      - run:  ls -la $CIRCLE_TEST_REPORTS/junit/
+      - run:  ls -la $CIRCLE_TEST_REPORTS/
       # Download and cache dependencies
       - restore_cache:
           keys:
