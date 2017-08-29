@@ -34,6 +34,12 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
         
       # run tests!
+      - store_artifacts:
+          path: /code/test-results
+          destination: prefix
+      - store_test_results:
+          path: /tmp/test-results
+    
       - run:  gradle tasks --all
       #gradle test
     #after_success:
