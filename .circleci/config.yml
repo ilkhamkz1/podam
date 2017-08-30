@@ -34,6 +34,10 @@ jobs:
           
       - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
       
+      - run: ls ~/repo/target/site
+      
+      - run: ls ./target/site
+      
       - run: bash <(curl -s https://codecov.io/bash)
           
   
