@@ -21,21 +21,17 @@ jobs:
       - checkout      
       # Download and cache dependencies
       
-     - store_artifacts:
+      - run: mvn clean verify
+
+      - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
           
       - store_test_results:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit   
           
-      - run: mvn clean verify
- 
       - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
       
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-     # - run: bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash)
           
   
