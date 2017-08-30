@@ -29,7 +29,9 @@ jobs:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
       
-      - run: find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
+      - run: |
+          ls -l ~/repo/target/
+          find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
 
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
@@ -38,9 +40,7 @@ jobs:
       - store_test_results:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit   
           
-      - run: |
-             ls -l ~/repo/terget/
-             bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash)
           
     
     
