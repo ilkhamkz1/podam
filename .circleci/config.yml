@@ -22,7 +22,9 @@ jobs:
       # Download and cache dependencies
       
       - run: mvn clean verify
-
+      
+      - run: mkdir -p $CIRCLE_TEST_REPORTS/junit/
+      
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
@@ -34,9 +36,9 @@ jobs:
           
       - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
       
-      - run: ls -l ~/repo/target/site/jacoco
+      - run: ls ~/repo/target/site/jacoco
       
-      - run: ls -l ./target/site/serenity
+      - run: ls ./target/site/serenity
       
       - run: bash <(curl -s https://codecov.io/bash)
           
