@@ -25,22 +25,21 @@ jobs:
           - v1-dependencies-{{ checksum "build.gradle" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-     
-      - run: mvn clean verify
-      - run: bash <(curl -s https://codecov.io/bash)
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-      
-      - run: find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
-       
-      - store_artifacts:
+     - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
           
       - store_test_results:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit   
+          
+      - run: mvn clean verify
+      
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+           
+    test:
+      - run: bash <(curl -s https://codecov.io/bash)
           
   
