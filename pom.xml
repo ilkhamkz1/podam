@@ -32,13 +32,13 @@
 	</licenses>
 
 	<issueManagement>
-		<system>JIRA</system>
-		<url>https://agileguru.atlassian.net</url>
+		<system>GitHub</system>
+		<url>https://github.com/ilkhamkz1/podam</url>
 	</issueManagement>
 
 	<ciManagement>
-		<system>Jenkins</system>
-		<url>https://jemos.ci.cloudbees.com/job/podam/</url>
+		<system>Circle CI</system>
+		<url>https://circleci.com/gh/ilkhamkz1/podam/</url>
 	</ciManagement>
 
 	<mailingLists>
