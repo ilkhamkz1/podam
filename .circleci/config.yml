@@ -21,12 +21,11 @@ jobs:
       - checkout      
       # Download and cache dependencies
       
+      - run: mvn clean verify test
+      
       - run: mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
       
-      - run: mvn clean verify test
-      - run:  mkdir -p $CIRCLE_TEST_REPORTS/junit/
-      
-      - run:  find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+      - run:  find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
           
       #- run: find . -name *.xml
           
