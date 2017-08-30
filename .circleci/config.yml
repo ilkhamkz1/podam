@@ -1,12 +1,13 @@
-language: java
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-script:
+machine:
+  java:
+    version: 1.8
+    
+general:
+  branches:
+    only:
+      - develop # list of branches to build
+      
+test:
+  override:
   - mvn clean verify
-branches:
-  only:
-    - develop
-
-after_success:
   - bash <(curl -s https://codecov.io/bash)
