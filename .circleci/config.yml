@@ -9,5 +9,5 @@ general:
       
 test:
   override:
-  - mvn clean verify
-  - bash <(curl -s https://codecov.io/bash)
+  - run: mvn clean verify
+  - run: bash <(curl -s https://codecov.io/bash)
