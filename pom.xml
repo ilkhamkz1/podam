@@ -366,7 +366,7 @@
 		</plugins>
 	</build>
 	<reporting>
-		#<outputDirectory>${basedir}/target/site</outputDirectory>
+		<!-- outputDirectory>${basedir}/target/site</outputDirectory -->
 		<outputDirectory>${working_directory}/CIRCLE_TEST_REPORTS/junit</outputDirectory>
 		<plugins>
 			<plugin>
