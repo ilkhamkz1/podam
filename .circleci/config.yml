@@ -29,10 +29,8 @@ jobs:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
       
-      - run: |
-          ls -l ~/repo/target/
-          find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
-
+      - run: find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
+          #ls -l ~/repo/target/
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
