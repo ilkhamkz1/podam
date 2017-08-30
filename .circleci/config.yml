@@ -21,7 +21,7 @@ jobs:
       - checkout      
       # Download and cache dependencies
       
-      - run: mvn clean verify
+      - run: mvn clean verify report
       
       - run: mkdir -p ~/repo/CIRCLE_TEST_REPORTS/junit/
       
