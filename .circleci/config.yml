@@ -39,7 +39,7 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "build.gradle" }}
            
-    test:
-      - run: bash <(curl -s https://codecov.io/bash)
+test:
+   - run: bash <(curl -s https://codecov.io/bash)
           
   
