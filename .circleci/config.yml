@@ -44,5 +44,5 @@ jobs:
       # run tests!
     
     test:
-       - run: - mvn clean verify
+       - run: mvn clean verify
       
