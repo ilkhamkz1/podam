@@ -30,11 +30,13 @@ jobs:
           destination: prefix
       
       - run: find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/repo/CIRCLE_TEST_REPORTS/junit/ \;
-          #ls -l ~/repo/target/
+      
       - store_artifacts:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit
           destination: prefix
-
+      
+      - run: ls -l ~/repo/target/
+      
       - store_test_results:
           path: ~/repo/CIRCLE_TEST_REPORTS/junit   
           
